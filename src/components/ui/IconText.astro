@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { splitIconText, symbolIcons } from '../../lib/icons';
+
+interface Props { text: string; }
+const { text } = Astro.props;
+---
+
+{splitIconText(text).map((part) => Object.hasOwn(symbolIcons, part) ? <Icon symbol={part} /> : part)}

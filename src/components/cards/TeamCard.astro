@@ -1,4 +1,5 @@
 ---
+import Icon from '../ui/Icon.astro';
 import { Image } from 'astro:assets';
 import type { TeamMember } from '../../data/team';
 
@@ -9,7 +10,7 @@ const { number, name, role, introduction, avatar } = Astro.props;
 <article class="team-card" aria-labelledby={`team-${number}-name`}>
   <div class="team-card-meta">
     <span>EQUIPE EASY / {number}</span>
-    <span class="team-card-mark" aria-hidden="true">↗</span>
+    <span class="team-card-mark" aria-hidden="true"><Icon symbol="↗" /></span>
   </div>
   <div class="team-portrait">
     <Image

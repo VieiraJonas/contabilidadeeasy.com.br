@@ -15,12 +15,13 @@
 ```astro
 ---
 import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
 ---
 
 <Button href="#contato" variant="primary" service="Abertura de empresa">
-  Abrir minha empresa ↗
+  Abrir minha empresa <Icon name="arrow-up-right" />
 </Button>
-<Button href="#servicos" variant="text">Conhecer serviços →</Button>
+<Button href="#servicos" variant="text">Conhecer serviços <Icon name="arrow-right" /></Button>
 <Button type="submit" variant="primary">Preparar mensagem</Button>
 ```
 

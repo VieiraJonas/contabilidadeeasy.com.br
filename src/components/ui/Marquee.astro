@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 interface Props {
   id?: string;
   items?: readonly string[];
@@ -30,8 +31,8 @@ const seconds = Number.isFinite(duration) ? Math.max(20, duration) : 70;
   <h2 id={titleId} class="marquee-sr-only">Soluções e valores da EASY</h2>
   <input id={pauseId} class="marquee-pause" type="checkbox" aria-label="Pausar letreiro" />
   <label for={pauseId} class="marquee-control">
-    <span class="marquee-pause-label" aria-hidden="true">Ⅱ</span>
-    <span class="marquee-resume-label" aria-hidden="true">✓</span>
+    <span class="marquee-pause-label" aria-hidden="true"><Icon symbol="Ⅱ" /></span>
+    <span class="marquee-resume-label" aria-hidden="true"><Icon symbol="✓" /></span>
     <span class="marquee-control-text" aria-hidden="true">Pausar letreiro</span>
   </label>
   <div class="marquee-window" aria-hidden="true">
@@ -39,7 +40,7 @@ const seconds = Number.isFinite(duration) ? Math.max(20, duration) : 70;
       {[0, 1].map(() => (
         <div class="marquee-group">
           {items.map((item) => (
-            <span class="marquee-item">{item}<span class="marquee-star">✳</span></span>
+            <span class="marquee-item">{item}<span class="marquee-star"><Icon symbol="✳" /></span></span>
           ))}
         </div>
       ))}

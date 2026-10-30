@@ -17,3 +17,9 @@ input,select,textarea{font-size:16px!important;max-width:100%}
 button,a,input,select,textarea,summary{touch-action:manipulation}
 @supports not (overflow:clip){body{overflow-x:hidden}}
 @media(max-width:639px){.hero h1{font-size:clamp(28px,8.4vw,42px)}.brand-poster{min-height:300px}.brand{font-size:20px}}
+
+/* Vector icons inherit brand colors and scale, never platform emoji fonts. */
+.easy-icon{display:inline-block;inline-size:1em;block-size:1em;flex:0 0 auto;vertical-align:-.125em;pointer-events:none;overflow:visible}
+:where(a,button)>.easy-icon{margin-inline-start:.3em}
+.button:has(>.easy-icon),.text-link:has(>.easy-icon){column-gap:.4em}
+.button>.easy-icon,.text-link>.easy-icon{margin-inline-start:0}

@@ -1,4 +1,6 @@
 ---
+import IconText from '../ui/IconText.astro';
+import Icon from '../ui/Icon.astro';
 import Button from '../ui/Button.astro';
 import type { ServiceCardData } from '../../data/home';
 
@@ -7,9 +9,9 @@ const { label, icon, title, description, features, service, action, featured = f
 ---
 
 <article class:list={['service-card', featured && 'featured']}>
-  <div class="card-top"><span>{label}</span><span aria-hidden="true">{icon}</span></div>
+  <div class="card-top"><span>{label}</span><span aria-hidden="true"><Icon symbol={icon} /></span></div>
   <h3>{title[0]}<br />{title[1]}</h3>
   <p>{description}</p>
   <ul>{features.map((feature) => <li>{feature}</li>)}</ul>
-  <Button variant="text" href="#contato" service={service}>{action}</Button>
+  <Button variant="text" href="#contato" service={service}><IconText text={action} /></Button>
 </article>
