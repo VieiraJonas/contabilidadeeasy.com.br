@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import type { TeamMember } from '../../data/team';
+
+type Props = TeamMember;
+const { number, name, role, introduction, avatar } = Astro.props;
+---
+
+<article class="team-card" aria-labelledby={`team-${number}-name`}>
+  <div class="team-card-meta">
+    <span>EQUIPE EASY / {number}</span>
+    <span class="team-card-mark" aria-hidden="true">↗</span>
+  </div>
+  <div class="team-portrait">
+    <Image
+      src={avatar}
+      alt={`Avatar 3D de ${name}`}
+      width={480}
+      widths={[240, 360, 480, 720, 960]}
+      sizes="(min-width: 1376px) 264px, (min-width: 1024px) calc((100vw - 208px) / 4), (min-width: 640px) calc((100vw - 160px) / 2), calc(100vw - 80px)"
+      format="webp"
+      quality={82}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="team-card-body">
+    <h3 id={`team-${number}-name`}>{name}</h3>
+    <p class="team-role">{role}</p>
+    <p class="team-introduction">{introduction}</p>
+  </div>
+</article>
+
+<style>
+  .team-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    transition: transform var(--duration-base), box-shadow var(--duration-base), border-color var(--duration-base);
+  }
+
+  .team-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: var(--color-muted);
+    font: 10px/1.6 var(--font-mono);
+    letter-spacing: 0.8px;
+  }
+
+  .team-card-mark { color: var(--color-primary); font-size: 21px; line-height: 1; }
+
+  .team-portrait {
+    aspect-ratio: 1;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--color-highlight) 55%, var(--color-surface));
+  }
+
+  .team-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  .team-card-body { display: flex; flex-direction: column; flex: 1; padding-top: 20px; }
+  .team-card h3 { margin: 0 0 10px; color: var(--color-ink); font: 600 27px/1.15 var(--font-heading); letter-spacing: -1px; }
+  .team-role { min-height: 3.2em; margin: 0 0 14px; color: var(--color-primary); font: 700 12px/1.6 var(--font-sans); }
+  .team-introduction { margin: 0; padding-top: 14px; border-top: 1px solid var(--color-line); color: var(--color-muted); font: 400 13px/1.8 var(--font-sans); }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .team-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(39 33 50 / 7%); border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-line)); }
+  }
+
+  @media (min-width: 640px) and (max-width: 1100px) {
+    .team-card { padding: 16px; }
+    .team-card-meta { font-size: 9px; letter-spacing: 0.4px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { .team-card { transition: none; } }
+</style>

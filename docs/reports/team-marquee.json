@@ -1,0 +1,175 @@
+{
+  "build": "npm run build: zero errors",
+  "widths": [
+    320,
+    360,
+    375,
+    390,
+    412,
+    640,
+    768,
+    1024,
+    1440
+  ],
+  "checks": [
+    {
+      "width": 320,
+      "columns": 1,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 320,
+        "scrollWidth": 320
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": false,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 360,
+      "columns": 1,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 360,
+        "scrollWidth": 360
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": false,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 375,
+      "columns": 1,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 375,
+        "scrollWidth": 375
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": false,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "columns": 1,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 390,
+        "scrollWidth": 390
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": false,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 412,
+      "columns": 1,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 412,
+        "scrollWidth": 412
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": false,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 640,
+      "columns": 2,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 640,
+        "scrollWidth": 640
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": true,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "columns": 2,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 768,
+        "scrollWidth": 768
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": true,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 1024,
+      "columns": 4,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 1024,
+        "scrollWidth": 1024
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": true,
+      "reducedMotion": true,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "columns": 4,
+      "avatarsDecoded": 4,
+      "overflow": {
+        "viewport": 1440,
+        "scrollWidth": 1440
+      },
+      "pauseByControl": true,
+      "keyboardResume": true,
+      "hoverPause": true,
+      "reducedMotion": true,
+      "errors": []
+    }
+  ],
+  "retina3x": [
+    {
+      "alt": "Avatar 3D de Carol",
+      "selected": "960w",
+      "complete": true
+    },
+    {
+      "alt": "Avatar 3D de Jully",
+      "selected": "960w",
+      "complete": true
+    },
+    {
+      "alt": "Avatar 3D de Mari",
+      "selected": "960w",
+      "complete": true
+    },
+    {
+      "alt": "Avatar 3D de Nina",
+      "selected": "960w",
+      "complete": true
+    }
+  ],
+  "motionSample": {
+    "before": "matrix(1, 0, 0, 1, -25.4618, 0)",
+    "after": "matrix(1, 0, 0, 1, -46.1584, 0)",
+    "medianFrameMs": 8.299999999999955,
+    "averageFps": 120.24048096192382,
+    "animation": "marquee"
+  },
+  "optimizedAvatarBytes": {
+    "minimum": 3710,
+    "maximum": 28434
+  }
+}

@@ -28,7 +28,7 @@ Com `href`, Button gera um link nativo. Sem `href`, gera um botão nativo com `t
 
 Variantes: `primary`, `outline`, `ghost` e `text`. Tamanhos: `default`, `small` e `large`; use as combinações estilizadas na folha da página. `class` acrescenta classes específicas. O slot recebe o rótulo e eventuais ícones.
 
-`service` gera `data-service`, consumido pelo `public/site.js` na página inicial. Esse comportamento prepara uma conversa de WhatsApp para links de serviço.
+`service` gera `data-service`, consumido pelo `src/scripts/site.js` na página inicial. Esse comportamento prepara uma conversa de WhatsApp para links de serviço.
 
 ## Cards e conteúdo
 
@@ -49,8 +49,13 @@ SectionHeading recebe `eyebrow` e `description`; o slot define o título, inclui
 
 ## Estilo e comportamento
 
-O visual continua em `public/site.css` e `public/brand.css`, carregados por EasyLayout. `public/site.js` mantém o menu, links por serviço e formulário. A componentização não acrescenta wrappers ou bibliotecas no cliente.
+O visual continua em `src/styles/site.css` e `src/styles/brand.css`, carregados por EasyLayout. `src/scripts/site.js` mantém o menu, links por serviço e formulário. A componentização não acrescenta wrappers ou bibliotecas no cliente.
 
 IDs, campos, atributos `data-service` e relações de acessibilidade foram mantidos. Não repita ContactForm na mesma página sem adaptar seus IDs e o script. Os componentes são renderizados no build e não precisam de `client:load`.
 
 Após mudanças estruturais, execute `npm run build`. Consulte também [a identidade e os serviços](design-system.md).
+
+
+## Equipe e marquee
+
+`TeamSection.astro` usa os dados de `src/data/team.ts` e o componente `TeamCard.astro`. `Marquee.astro` fornece o letreiro contábil com pausa nativa e redução de movimento, sem JavaScript. Consulte [os detalhes e exemplos](team-marquee.md).

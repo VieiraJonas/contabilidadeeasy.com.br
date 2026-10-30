@@ -1,0 +1,126 @@
+---
+interface Props {
+  id?: string;
+  items?: readonly string[];
+  duration?: number;
+}
+
+const {
+  id = 'easy-marquee',
+  duration = 70,
+  items = [
+    'ABERTURA DE EMPRESA',
+    'BPO FINANCEIRO',
+    'CONTABILIDADE DIGITAL',
+    'MIGRAÇÃO DE MEI PARA ME',
+    'CERTIFICADO DIGITAL',
+    'PLANEJAMENTO TRIBUTÁRIO',
+    'RELAÇÕES HUMANAS',
+    'GESTÃO COM CLAREZA',
+    'ATENDIMENTO PRÓXIMO',
+  ],
+} = Astro.props;
+
+const pauseId = `${id}-pause`;
+const titleId = `${id}-title`;
+const seconds = Number.isFinite(duration) ? Math.max(20, duration) : 70;
+---
+
+<section class="marquee" aria-labelledby={titleId} style={`--marquee-duration: ${seconds}s;`}>
+  <h2 id={titleId} class="marquee-sr-only">Soluções e valores da EASY</h2>
+  <input id={pauseId} class="marquee-pause" type="checkbox" aria-label="Pausar letreiro" />
+  <label for={pauseId} class="marquee-control">
+    <span class="marquee-pause-label" aria-hidden="true">Ⅱ</span>
+    <span class="marquee-resume-label" aria-hidden="true">✓</span>
+    <span class="marquee-control-text" aria-hidden="true">Pausar letreiro</span>
+  </label>
+  <div class="marquee-window" aria-hidden="true">
+    <div class="marquee-track">
+      {[0, 1].map(() => (
+        <div class="marquee-group">
+          {items.map((item) => (
+            <span class="marquee-item">{item}<span class="marquee-star">✳</span></span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+  <ul class="marquee-sr-only">{items.map((item) => <li>{item}</li>)}</ul>
+</section>
+
+<style>
+  .marquee {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+    padding: 12px clamp(16px, 3vw, 40px);
+    background: var(--color-ink);
+    color: var(--color-paper);
+    border-block: 1px solid color-mix(in srgb, var(--color-paper) 18%, var(--color-ink));
+  }
+
+  .marquee-window { grid-column: 1; grid-row: 1; min-width: 0; width: 100%; overflow: hidden; }
+  .marquee-track { display: flex; width: max-content; animation: marquee var(--marquee-duration) linear infinite; will-change: transform; }
+  .marquee-group { display: flex; flex: 0 0 auto; align-items: center; gap: 28px; padding-inline-end: 28px; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 28px; white-space: nowrap; font: 600 clamp(14px, 1.2vw, 18px)/1.5 var(--font-heading); letter-spacing: 1px; }
+  .marquee-star { color: var(--color-highlight); font-size: 26px; line-height: 1; }
+  .marquee-pause:checked ~ .marquee-window .marquee-track { animation-play-state: paused; }
+  @media (hover: hover) { .marquee:hover .marquee-track { animation-play-state: paused; } }
+
+  .marquee-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 1px solid color-mix(in srgb, var(--color-paper) 40%, var(--color-ink));
+    cursor: pointer;
+    color: var(--color-paper);
+    font: 11px/1.5 var(--font-mono);
+    user-select: none;
+  }
+
+  .marquee-control > span { display: flex; align-items: center; gap: 8px; }
+  .marquee-control .marquee-resume-label { display: none; }
+  .marquee-pause:checked + .marquee-control .marquee-pause-label { display: none; }
+  .marquee-pause:checked + .marquee-control .marquee-resume-label { display: flex; }
+  .marquee-pause:checked + .marquee-control { color: var(--color-ink); background: var(--color-highlight); border-color: var(--color-highlight); }
+  .marquee-pause:focus-visible + .marquee-control { outline: 3px solid var(--color-highlight); outline-offset: 4px; }
+  .marquee-pause, .marquee-sr-only { position: absolute; width: 1px; height: 1px; min-width: 0; min-height: 0; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  @media (max-width: 639px) {
+    .marquee { gap: 12px; }
+    .marquee-control { min-width: 48px; width: 48px; padding-inline: 8px; font-size: 20px; }
+    .marquee-control .marquee-control-text { display: none; }
+    .marquee-group, .marquee-item { gap: 20px; }
+    .marquee-group { padding-inline-end: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { display: block; padding-block: 22px; }
+    .marquee-control, .marquee-pause { display: none; }
+    .marquee-track { display: block; width: 100%; animation: none; transform: none; will-change: auto; }
+    .marquee-group { width: 100%; flex-wrap: wrap; gap: 12px 20px; padding: 0; }
+    .marquee-group + .marquee-group { display: none; }
+    .marquee-item { max-width: 100%; gap: 16px; white-space: normal; overflow-wrap: anywhere; font-size: 12px; letter-spacing: 0.5px; }
+    .marquee-star { flex-shrink: 0; font-size: 20px; }
+  }
+
+  @media print {
+    .marquee-control, .marquee-pause { display: none; }
+    .marquee { display: block; }
+    .marquee-track { display: block; width: 100%; animation: none; transform: none; }
+    .marquee-group { flex-wrap: wrap; }
+    .marquee-group + .marquee-group { display: none; }
+    .marquee-item { white-space: normal; }
+  }
+</style>

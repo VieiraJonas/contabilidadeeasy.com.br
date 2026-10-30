@@ -1,0 +1,26 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import TeamCard from '../cards/TeamCard.astro';
+import { team } from '../../data/team';
+---
+
+<section id="equipe" class="block team-section" aria-label="Equipe EASY">
+  <div class="container">
+    <SectionHeading
+      eyebrow="04 / QUEM FAZ ACONTECER"
+      description="Conheça quem acolhe suas dúvidas, organiza a rotina e acompanha os próximos passos da sua empresa. Pessoas reais cuidando do seu negócio."
+    >
+      Pessoas reais.<br /><em>Por trás dos números.</em>
+    </SectionHeading>
+    <div class="team-grid">
+      {team.map((member) => <TeamCard {...member} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section { background: var(--color-paper); }
+  .team-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
+  @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>

@@ -1,0 +1,33 @@
+{
+  "environment": "Local production build; Lighthouse mobile default simulated throttling; Chrome headless",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": {
+      "display": "1.2 s",
+      "value": 1203.5753999999997
+    },
+    "largest-contentful-paint": {
+      "display": "1.2 s",
+      "value": 1203.5753999999997
+    },
+    "total-blocking-time": {
+      "display": "0 ms",
+      "value": 0
+    },
+    "cumulative-layout-shift": {
+      "display": "0",
+      "value": 9.894662339236641e-05
+    },
+    "speed-index": {
+      "display": "1.2 s",
+      "value": 1203.5753999999997
+    }
+  },
+  "date": "2026-10-30",
+  "scope": "Landing page, production build served locally, Lighthouse mobile simulated throttling. Not a published-domain PageSpeed measurement."
+}

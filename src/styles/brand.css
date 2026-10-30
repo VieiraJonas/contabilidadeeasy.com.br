@@ -1,9 +1,19 @@
 /* EASY — valores de marca compartilhados pelo site e pelo catálogo. */
-@font-face{font-family:Montserrat;src:url('assets/montserrat-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
-@font-face{font-family:Mulish;src:url('assets/mulish-latin.woff2') format('woff2');font-style:normal;font-weight:200 1000;font-display:swap}
+@font-face{font-family:Montserrat;src:url('../assets/fonts/montserrat-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Mulish;src:url('../assets/fonts/mulish-latin.woff2') format('woff2');font-style:normal;font-weight:200 1000;font-display:swap}
 :root{--color-primary:#7b3f9f;--color-primary-hover:#623080;--color-highlight:#e8d9f2;--color-paper:#f7f5fa;--color-surface:#fff;--color-ink:#272132;--color-muted:#686170;--color-line:#ded7e6;--font-sans:Mulish,Arial,sans-serif;--font-heading:Montserrat,Arial,sans-serif;--font-serif:Georgia,'Times New Roman',serif;--font-mono:'Courier New',monospace;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--radius-none:0;--radius-sm:8px;--radius-pill:999px;--duration-fast:120ms;--duration-base:240ms;--duration-slow:400ms;--ease-out:cubic-bezier(.2,.8,.2,1)}
 [data-theme=dark]{--color-primary:#d7a9f3;--color-primary-hover:#e5c8f7;--color-highlight:#443050;--color-paper:#1d1725;--color-surface:#2a2134;--color-ink:#f7f5fa;--color-muted:#c8bdd0;--color-line:#51435e}
 h1,h2,h3,.brand,.metric strong{font-family:var(--font-heading)}
 .brand{font-size:27px;letter-spacing:-1.5px}.brand-star{font-size:25px}.brand small{letter-spacing:1px}.brand-poster{background:#efe6f5;min-height:440px;display:flex;align-items:center;justify-content:center}.brand-poster img{display:block;width:100%;height:auto;object-fit:contain}.brand-poster .poster-top,.brand-poster .poster-bottom{color:#5b326e}.body-face{font-family:var(--font-sans);font-weight:400}.hero h1{font-size:clamp(50px,5vw,78px);line-height:1.06;letter-spacing:-.065em}.hero h1 em{font-family:var(--font-heading);font-style:normal;font-weight:500;color:var(--color-primary)}.button.primary{color:#fff}.button.primary:hover{color:var(--color-paper)}[data-theme=dark] .button.primary{color:#272132}.reference:hover{background:var(--color-highlight)}.references>.button{margin-top:24px}.distribution span:nth-child(3){background:#7b3f9f}.type-scale .type-row:nth-child(-n+4)>span:nth-child(2){font-family:var(--font-heading)}
 @media(max-width:639px){.hero h1{font-size:clamp(45px,11vw,65px)}.brand-poster{min-height:320px}.brand{font-size:24px}}
 .service-spec h3{margin:20px 0 13px}.service-spec p{font-size:13px}.service-spec .mono{font-size:9px}#servicos-easy .panel>.button{margin-top:20px}.brand-poster img{max-width:100%;mix-blend-mode:multiply}
+
+/* Shared layout safeguards; horizontal containers retain their own scroll. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:clip}
+body{min-width:0;max-width:100%;overflow-x:clip}
+img,video,svg{max-width:100%}
+input,select,textarea{font-size:16px!important;max-width:100%}
+button,a,input,select,textarea,summary{touch-action:manipulation}
+@supports not (overflow:clip){body{overflow-x:hidden}}
+@media(max-width:639px){.hero h1{font-size:clamp(28px,8.4vw,42px)}.brand-poster{min-height:300px}.brand{font-size:20px}}

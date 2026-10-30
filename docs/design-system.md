@@ -4,10 +4,10 @@ No projeto Astro, acesse `/` para o site e `/design-system/` para o catálogo. U
 
 ## Arquivos
 
-- `src/pages/index.astro`, `public/site.css`, `public/site.js`: serviços, segmentos, sobre a EASY, vantagens, dúvidas e contato.
+- `src/pages/index.astro`, `src/styles/site.css`, `src/scripts/site.js`: serviços, segmentos, sobre a EASY, vantagens, dúvidas e contato.
 - `src/pages/design-system.astro`: documentação em português, agora com identidade e serviços EASY.
-- `public/brand.css`: cores, fontes e papéis de marca compartilhados entre as duas páginas.
-- `public/assets/`: logotipo original e fontes Montserrat e Mulish locais.
+- `src/styles/brand.css`: cores, fontes e papéis de marca compartilhados entre as duas páginas.
+- `src/assets/`: logotipo original e fontes Montserrat e Mulish locais.
 - `styles.css`: tokens semânticos, temas claro e escuro, componentes, responsividade, impressão e redução de movimento.
 - `app.js`: navegação, busca, cálculo de contraste, cópia de cores e CSS, exportação JSON, formulário, abas, preferências, tabela, notificações e diálogo.
 
@@ -25,7 +25,7 @@ Os links de serviços abrem mensagens específicas no WhatsApp. O formulário va
 
 ## Uso
 
-Para reutilizar componentes do catálogo, importe `styles.css` seguido de `public/brand.css`. `app.js` depende da estrutura do catálogo; a página inicial usa `site.js` e `site.css`. A exportação gera `easy-tokens.json` e permite copiar CSS. Os valores documentados são do tema claro; o tema escuro redefine os papéis semânticos no CSS.
+Para reutilizar componentes do catálogo, importe `src/styles/brand.css` e `src/styles/catalog.css`. `src/scripts/catalog.js` depende da estrutura do catálogo; a página inicial usa `site.js` e `site.css`. A exportação gera `easy-tokens.json` e permite copiar CSS. Os valores documentados são do tema claro; o tema escuro redefine os papéis semânticos no CSS.
 
 O formulário do catálogo continua sendo demonstrativo e não envia dados. A tabela contém solicitações fictícias. A preferência de tema é persistida localmente quando o navegador permite. O formulário do site abre o WhatsApp apenas após ação explícita do usuário.
 

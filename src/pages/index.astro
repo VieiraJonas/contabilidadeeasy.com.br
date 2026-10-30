@@ -1,5 +1,6 @@
 ---
 import EasyLayout from '../layouts/EasyLayout.astro';
+import '../styles/site.css';
 import UtilityBar from '../components/layout/UtilityBar.astro';
 import SiteHeader from '../components/layout/SiteHeader.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
@@ -7,6 +8,8 @@ import ManifestoStrip from '../components/sections/ManifestoStrip.astro';
 import ServicesSection from '../components/sections/ServicesSection.astro';
 import SegmentsSection from '../components/sections/SegmentsSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
+import TeamSection from '../components/sections/TeamSection.astro';
+import Marquee from '../components/ui/Marquee.astro';
 import BenefitsSection from '../components/sections/BenefitsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
@@ -17,8 +20,6 @@ import FloatingContact from '../components/layout/FloatingContact.astro';
 <EasyLayout
   title="EASY Contabilidade Digital — Mais simples para sua empresa"
   description="EASY Contabilidade Digital em Guarapari. Abertura de empresa, MEI, migração para ME, troca de contador e certificado digital. Converse pelo WhatsApp."
-  styles={["brand.css", "site.css"]}
-  scripts={["site.js"]}
 >
   <a href="#conteudo" class="skip">Pular para o conteúdo</a>
   <UtilityBar />
@@ -30,6 +31,8 @@ import FloatingContact from '../components/layout/FloatingContact.astro';
     <ServicesSection />
     <SegmentsSection />
     <AboutSection />
+    <TeamSection />
+    <Marquee />
     <BenefitsSection />
     <FaqSection />
     <ContactSection />
@@ -37,4 +40,5 @@ import FloatingContact from '../components/layout/FloatingContact.astro';
 
   <SiteFooter />
   <FloatingContact />
+  <script>import '../scripts/site.js';</script>
 </EasyLayout>

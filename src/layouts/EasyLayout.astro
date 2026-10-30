@@ -1,14 +1,19 @@
 ---
+import '../styles/brand.css';
+import { getImage } from 'astro:assets';
+import favicon from '../assets/images/easy-profile.png';
+import montserratUrl from '../assets/fonts/montserrat-latin.woff2?url';
+import mulishUrl from '../assets/fonts/mulish-latin.woff2?url';
+
 interface Props {
   title: string;
   description: string;
   themeColor?: string;
-  styles: string[];
-  scripts: string[];
+  page?: 'site' | 'catalog';
 }
 
-const { title, description, themeColor = '#7b3f9f', styles, scripts } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const { title, description, themeColor = '#7b3f9f', page = 'site' } = Astro.props;
+const faviconImage = await getImage({ src: favicon, width: 64, height: 64, format: 'png' });
 ---
 
 <!doctype html>
@@ -20,11 +25,11 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="icon" type="image/png" href={`${base}assets/easy-profile.png`} />
-    {styles.map((stylesheet) => <link rel="stylesheet" href={`${base}${stylesheet}`} />)}
-    {scripts.map((script) => <script is:inline src={`${base}${script}`} defer></script>)}
+    <link rel="icon" type="image/png" href={faviconImage.src} />
+    <link rel="preload" href={montserratUrl} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={mulishUrl} as="font" type="font/woff2" crossorigin="anonymous" />
   </head>
-  <body>
+  <body class={page === 'catalog' ? 'catalog-page' : 'site-page'}>
     <slot />
   </body>
 </html>

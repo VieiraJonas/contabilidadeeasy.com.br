@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import wordmark from '../../assets/images/easy-wordmark.png';
+
 interface Props {
   href?: string;
 }
 const { href = '#inicio' } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <a class="wordmark" href={href} aria-label="EASY Contabilidade Digital, início">
-  <img src={`${base}assets/easy-logo.png`} alt="EASY contabilidade digital" width="3125" height="1875" />
+  <Image src={wordmark} alt="EASY contabilidade digital" width={200} widths={[100, 200, 300]} sizes="100px" format="webp" quality={75} loading="lazy" decoding="async" />
 </a>
