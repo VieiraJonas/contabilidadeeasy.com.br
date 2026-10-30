@@ -1,0 +1,19 @@
+---
+import Button from '../ui/Button.astro';
+import BrandLogo from '../ui/BrandLogo.astro';
+---
+
+<header class="site-header">
+<div class="container header-inner">
+<BrandLogo />
+<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span>
+</button>
+<nav id="site-nav" aria-label="Menu principal">
+<a href="#servicos">Serviços</a>
+<a href="#segmentos">Para quem</a>
+<a href="#sobre">A EASY</a>
+<a href="#duvidas">Dúvidas</a>
+<Button variant="primary" size="small" href="#contato">Fale com a EASY ↗</Button>
+</nav>
+</div>
+</header>

@@ -1,0 +1,24 @@
+---
+import Button from '../ui/Button.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ServiceCard from '../cards/ServiceCard.astro';
+import { services } from '../../data/home';
+---
+
+<section id="servicos" class="block">
+<div class="container">
+<SectionHeading eyebrow="01 / SOLUÇÕES PARA SUA EMPRESA" description="Começar, organizar ou mudar de rota. Encontre o serviço que acompanha o momento do seu negócio.">Cada fase pede<br>
+<em>o apoio certo.</em>
+</SectionHeading>
+<div class="service-grid">{services.map((service) => <ServiceCard {...service} />)}</div>
+<div class="certificate-banner">
+<div class="certificate-symbol" aria-hidden="true">✓</div>
+<div>
+<span class="eyebrow">MAIS UMA SOLUÇÃO PARA SUA ROTINA</span>
+<h3>Certificado digital</h3>
+<p>Converse com a EASY sobre a emissão ou renovação do certificado adequado à sua necessidade.</p>
+</div>
+<Button variant="outline" service="Certificado digital" href="#contato">Consultar certificado ↗</Button>
+</div>
+</div>
+</section>

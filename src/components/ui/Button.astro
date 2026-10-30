@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Appearance = {
+  variant?: 'primary' | 'outline' | 'ghost' | 'text';
+  size?: 'default' | 'small' | 'large';
+  service?: string;
+  class?: string;
+};
+
+type Props = Appearance & (
+  | (HTMLAttributes<'a'> & { href: string })
+  | (HTMLAttributes<'button'> & { href?: never })
+);
+
+const { href, variant = 'outline', size = 'default', service, class: className, ...attributes } = Astro.props;
+const Tag = href === undefined ? 'button' : 'a';
+---
+
+<Tag
+  {...attributes}
+  href={href}
+  type={href === undefined ? (attributes.type ?? 'button') : attributes.type}
+  class:list={[
+    variant === 'text' ? 'text-link' : 'button',
+    variant !== 'text' && variant !== 'outline' && variant,
+    size !== 'default' && size,
+    className,
+  ]}
+  data-service={service}
+>
+  <slot />
+</Tag>

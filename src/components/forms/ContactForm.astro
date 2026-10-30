@@ -1,0 +1,30 @@
+---
+import Button from '../ui/Button.astro';
+import { contactServices } from '../../data/home';
+---
+
+<form id="contact-form" class="contact-form" novalidate>
+<span class="eyebrow">PRIMEIRO CONTATO / EASY</span>
+<h3>Como podemos ajudar?</h3>
+<p class="form-intro">Sua mensagem será preparada para o WhatsApp. Você confere e envia a conversa por lá.</p>
+<label for="contact-name">Seu nome <span aria-hidden="true">*</span>
+</label>
+<input id="contact-name" name="name" autocomplete="name" placeholder="Como podemos chamar você?" required maxlength="100" aria-describedby="contact-name-error">
+<small class="field-error" id="contact-name-error">
+</small>
+<label for="contact-company">Empresa <span class="optional">(opcional)</span>
+</label>
+<input id="contact-company" name="company" autocomplete="organization" placeholder="Nome da empresa ou da sua ideia" maxlength="120">
+<label for="contact-service">O que você precisa?</label>
+<select id="contact-service" name="service">{contactServices.map((service) => <option>{service}</option>)}</select>
+<label for="contact-message">Conte um pouco mais <span class="optional">(opcional)</span>
+</label>
+<textarea id="contact-message" name="message" rows="3" maxlength="1000" placeholder="Qual é o momento do seu negócio?">
+</textarea>
+<Button variant="primary" type="submit">Preparar mensagem no WhatsApp <span>↗</span>
+</Button>
+<p class="privacy-note">Os campos são usados apenas para compor a mensagem. Ao continuar, você abre o WhatsApp e decide se deseja enviá-la. Nenhum dado deste formulário é armazenado no site.</p>
+<p id="contact-status" role="status" aria-live="polite">
+</p>
+<a class="text-link" id="whatsapp-fallback" hidden target="_blank" rel="noopener noreferrer">Continuar no WhatsApp ↗</a>
+</form>

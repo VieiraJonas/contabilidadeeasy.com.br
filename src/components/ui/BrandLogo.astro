@@ -1,0 +1,11 @@
+---
+interface Props {
+  href?: string;
+}
+const { href = '#inicio' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<a class="wordmark" href={href} aria-label="EASY Contabilidade Digital, início">
+  <img src={`${base}assets/easy-logo.png`} alt="EASY contabilidade digital" width="3125" height="1875" />
+</a>

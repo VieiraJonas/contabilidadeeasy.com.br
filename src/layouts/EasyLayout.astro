@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  themeColor?: string;
+  styles: string[];
+  scripts: string[];
+}
+
+const { title, description, themeColor = '#7b3f9f', styles, scripts } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={themeColor} />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href={`${base}assets/easy-profile.png`} />
+    {styles.map((stylesheet) => <link rel="stylesheet" href={`${base}${stylesheet}`} />)}
+    {scripts.map((script) => <script is:inline src={`${base}${script}`} defer></script>)}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

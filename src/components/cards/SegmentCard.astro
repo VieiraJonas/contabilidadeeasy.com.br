@@ -1,0 +1,15 @@
+---
+import Button from '../ui/Button.astro';
+import type { SegmentCardData } from '../../data/home';
+
+type Props = SegmentCardData;
+const { icon, label, title, description, service, action } = Astro.props;
+---
+
+<article>
+  <span class="segment-icon" aria-hidden="true">{icon}</span>
+  <span class="eyebrow">{label}</span>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <Button variant="text" href="#contato" service={service}>{action}</Button>
+</article>

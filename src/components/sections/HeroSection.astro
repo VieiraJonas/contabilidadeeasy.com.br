@@ -1,0 +1,60 @@
+---
+import Button from '../ui/Button.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<section id="inicio" class="home-hero">
+<div class="container">
+<div class="section-kicker">
+<span>
+<i class="status-dot">
+</i> EASY / CONTABILIDADE DIGITAL</span>
+<span>GUARAPARI, ES ↗</span>
+</div>
+<div class="hero-layout">
+<div class="hero-copy">
+<p class="eyebrow">MENOS COMPLICAÇÃO. MAIS DIREÇÃO.</p>
+<h1>Seu negócio<br>tem futuro.<br>
+<span>Vamos cuidar<br>do caminho.</span>
+</h1>
+<p class="lead">Da primeira ideia ao próximo passo da sua empresa. Uma contabilidade digital que organiza a rotina e aproxima você das decisões que importam.</p>
+<div class="actions">
+<Button variant="primary" service="Abertura de empresa" href="https://wa.me/5527996169171" target="_blank" rel="noopener noreferrer">Quero abrir minha empresa <span>↗</span>
+</Button>
+<Button variant="text" service="Troca de contador" href="https://wa.me/5527996169171" target="_blank" rel="noopener noreferrer">Quero trocar de contador →</Button>
+</div>
+<div class="hero-note">
+<span class="line-mark" aria-hidden="true">↳</span>
+<p>Digital na experiência.<br>
+<strong>Próxima no atendimento.</strong>
+</p>
+</div>
+</div>
+<div class="brand-stage">
+<div class="stage-meta">
+<span>SEU PRÓXIMO CAPÍTULO</span>
+<span>COMEÇA AQUI ↗</span>
+</div>
+<div class="stage-circle" aria-hidden="true">
+</div>
+<img src={`${base}assets/easy-logo.png`} alt="EASY contabilidade digital" width="3125" height="1875" fetchpriority="high">
+<div class="stage-label">
+<span class="asterisk" aria-hidden="true">✳</span>
+<span>Você empreende.<br>
+<strong>A gente simplifica.</strong>
+</span>
+</div>
+<div class="stage-bottom">
+<span>CLAREZA + PARCERIA</span>
+<span>DO INÍCIO AO CRESCIMENTO</span>
+</div>
+</div>
+</div>
+<div class="hero-bottom">
+<span>ABERTURA DE EMPRESA</span>
+<span>MEI E ME</span>
+<span>ROTINA CONTÁBIL</span>
+<span>ATENDIMENTO HUMANO</span>
+</div>
+</div>
+</section>

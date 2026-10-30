@@ -1,0 +1,15 @@
+---
+import Button from '../ui/Button.astro';
+import type { ServiceCardData } from '../../data/home';
+
+type Props = ServiceCardData;
+const { label, icon, title, description, features, service, action, featured = false } = Astro.props;
+---
+
+<article class:list={['service-card', featured && 'featured']}>
+  <div class="card-top"><span>{label}</span><span aria-hidden="true">{icon}</span></div>
+  <h3>{title[0]}<br />{title[1]}</h3>
+  <p>{description}</p>
+  <ul>{features.map((feature) => <li>{feature}</li>)}</ul>
+  <Button variant="text" href="#contato" service={service}>{action}</Button>
+</article>

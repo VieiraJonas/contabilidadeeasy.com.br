@@ -1,0 +1,42 @@
+---
+import BrandLogo from '../ui/BrandLogo.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<BrandLogo />
+<p>Clareza para decidir.<br>Parceria para seguir em frente.</p>
+<a href="https://wa.me/5527996169171" target="_blank" rel="noopener noreferrer" class="footer-contact">(27) 99616-9171 ↗</a>
+</div>
+<div>
+<h3>Serviços</h3>
+<a data-service="Abertura de empresa" href="#contato">Abertura de empresa</a>
+<a data-service="Troca de contador" href="#contato">Troca de contador</a>
+<a data-service="MEI" href="#contato">MEI</a>
+<a data-service="Migração de MEI para ME" href="#contato">MEI para ME</a>
+<a data-service="Certificado digital" href="#contato">Certificado digital</a>
+</div>
+<div>
+<h3>Seu negócio</h3>
+<a href="#segmentos">Advocacia</a>
+<a href="#segmentos">Comércio</a>
+<a href="#segmentos">Prestação de serviços</a>
+<a href="#sobre">Sobre a EASY</a>
+<a href="#duvidas">Dúvidas frequentes</a>
+</div>
+<div>
+<h3>Onde estamos</h3>
+<address>Rua Joaquim da Silva Lima, 233<br>Centro, Loja 15<br>Guarapari – ES<br>CEP 29200-260</address>
+<a href="#contato">Combinar atendimento ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> EASY Contabilidade Digital.</span>
+<a href={`${base}design-system/`}>Identidade & design system ↗</a>
+<a href="#inicio">Voltar ao início ↑</a>
+</div>
+</div>
+</footer>

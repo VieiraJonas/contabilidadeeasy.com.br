@@ -1,0 +1,43 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import BenefitCard from '../cards/BenefitCard.astro';
+import { benefits } from '../../data/home';
+---
+
+<section id="vantagens" class="block benefits-section">
+<div class="container">
+<SectionHeading eyebrow="04 / UMA PARCERIA QUE FAZ SENTIDO" description="Uma experiência pensada para tirar dúvidas, organizar etapas e aproximar você da sua contabilidade.">Digital para facilitar.<br>
+<em>Humana para cuidar.</em>
+</SectionHeading>
+<div class="benefits-grid">{benefits.map((benefit) => <BenefitCard {...benefit} />)}</div>
+<div class="process">
+<div>
+<span class="eyebrow">COMO COMEÇAMOS</span>
+<h3>Da conversa<br>ao próximo passo.</h3>
+</div>
+<ol>
+<li>
+<span>01</span>
+<div>
+<b>Conte seu momento</b>
+<p>Você explica o que precisa e em qual fase o negócio está.</p>
+</div>
+</li>
+<li>
+<span>02</span>
+<div>
+<b>Entendemos o cenário</b>
+<p>Alinhamos as informações necessárias para avaliar o atendimento.</p>
+</div>
+</li>
+<li>
+<span>03</span>
+<div>
+<b>Combinamos o caminho</b>
+<p>Você recebe orientação sobre escopo e próximas etapas.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</section>

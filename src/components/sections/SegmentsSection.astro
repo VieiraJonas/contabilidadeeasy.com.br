@@ -1,0 +1,14 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import SegmentCard from '../cards/SegmentCard.astro';
+import { segments } from '../../data/home';
+---
+
+<section id="segmentos" class="block segment-section">
+<div class="container">
+<SectionHeading eyebrow="02 / PARA QUEM EMPREENDE" description="A contabilidade precisa entender a sua atividade. Um ponto de partida para conversar sobre o que faz sentido para você.">Seu trabalho tem<br>
+<em>particularidades.</em>
+</SectionHeading>
+<div class="segment-grid">{segments.map((segment) => <SegmentCard {...segment} />)}</div>
+</div>
+</section>

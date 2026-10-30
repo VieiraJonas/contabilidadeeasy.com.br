@@ -1,0 +1,11 @@
+---
+import type { FaqItemData } from '../../data/home';
+
+type Props = FaqItemData;
+const { number, question, answer } = Astro.props;
+---
+
+<details>
+  <summary><span>{number}</span>{question}</summary>
+  <p>{answer}</p>
+</details>

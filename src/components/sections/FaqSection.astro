@@ -1,0 +1,19 @@
+---
+import Button from '../ui/Button.astro';
+import FaqItem from '../ui/FaqItem.astro';
+import { questions } from '../../data/home';
+---
+
+<section id="duvidas" class="block faq-section">
+<div class="container faq-layout">
+<div>
+<span class="eyebrow">05 / DÚVIDAS FREQUENTES</span>
+<h2>Uma boa decisão<br>
+<em>começa com clareza.</em>
+</h2>
+<p>Não encontrou o que procura?<br>A conversa continua no WhatsApp.</p>
+<Button variant="text" href="https://wa.me/5527996169171" target="_blank" rel="noopener noreferrer">Tirar minha dúvida ↗</Button>
+</div>
+<div class="faq-list">{questions.map((question) => <FaqItem {...question} />)}</div>
+</div>
+</section>
