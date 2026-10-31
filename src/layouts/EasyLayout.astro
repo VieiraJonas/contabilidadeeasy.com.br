@@ -1,5 +1,6 @@
 ---
 import '../styles/brand.css';
+import SiteEffects from '../components/ui/SiteEffects.astro';
 import { getImage } from 'astro:assets';
 import favicon from '../assets/images/easy-profile.png';
 import montserratUrl from '../assets/fonts/montserrat-latin.woff2?url';
@@ -31,5 +32,6 @@ const faviconImage = await getImage({ src: favicon, width: 64, height: 64, forma
   </head>
   <body class={page === 'catalog' ? 'catalog-page' : 'site-page'}>
     <slot />
+    {page === 'site' && <SiteEffects />}
   </body>
 </html>

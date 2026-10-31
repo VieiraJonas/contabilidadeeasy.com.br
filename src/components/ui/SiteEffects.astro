@@ -1,0 +1,47 @@
+<!-- Motion adapted from TerraSprint's word reveal, rise and floating tiles. -->
+<script>
+  import '../../scripts/effects.js';
+</script>
+
+<style is:global>
+  .motion-word { display: inline-block; }
+  .site-page .hero-copy h1 > .motion-word { color: inherit; font-weight: inherit; }
+  .site-page .motion-rise {
+    transition: opacity 800ms cubic-bezier(.22,.61,.36,1), translate 800ms cubic-bezier(.22,.61,.36,1);
+  }
+  .site-page .motion-rise.is-pending { opacity: 0; translate: 0 14px; }
+  .site-page .motion-card {
+    position: relative;
+    transition: transform 350ms cubic-bezier(.22,.61,.36,1), box-shadow 350ms, border-color 350ms,
+      opacity 800ms cubic-bezier(.22,.61,.36,1), translate 800ms cubic-bezier(.22,.61,.36,1);
+  }
+  .site-page .motion-card::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(125deg, rgb(255 255 255 / 16%), transparent 55%);
+    opacity: 0; transition: opacity 350ms;
+  }
+  .site-page .motion-card :is(.easy-icon, .team-portrait img) { transition: transform 400ms cubic-bezier(.22,.61,.36,1); }
+  .site-page .text-link .easy-icon, .site-page .button .easy-icon { transition: transform 300ms; }
+  .site-page :is(.text-link, .button):is(:hover, :focus-visible) .easy-icon { transform: translate(3px, -2px); }
+  .site-page .motion-card:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 16px 32px -18px rgb(77 33 105 / 35%);
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .site-page .motion-card:hover {
+      z-index: 1; transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-line));
+      box-shadow: 0 20px 36px -18px rgb(77 33 105 / 30%), inset 0 1px 0 rgb(255 255 255 / 35%);
+    }
+    .site-page .motion-card:hover::after { opacity: 1; }
+    .site-page .motion-card:hover .segment-icon .easy-icon { transform: translateY(-4px) rotate(-6deg); }
+    .site-page .motion-card:hover .card-top .easy-icon { transform: rotate(-8deg) scale(1.12); }
+    .site-page .motion-card:hover .team-portrait img { transform: scale(1.045); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-page .motion-word { opacity: 1 !important; filter: none !important; transform: none !important; }
+    .site-page .motion-rise, .site-page .motion-card { opacity: 1 !important; translate: none !important; transition: none !important; }
+    .site-page .motion-card, .site-page .motion-card::after, .site-page .motion-card *,
+    .site-page .button .easy-icon, .site-page .text-link .easy-icon { transition: none !important; transform: none !important; }
+  }
+</style>
